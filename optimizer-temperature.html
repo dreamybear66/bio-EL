@@ -60,212 +60,865 @@
                     Back to Optimizers
                 </div>
                 <h1 class="optimizer-title">Temperature & Process Control Optimizer</h1>
-                <p class="optimizer-subtitle">Simulate and optimize heat treatment parameters for maximum safety and
-                    efficiency</p>
+                <p class="optimizer-subtitle">AI-Generated Technical Report on Feedstock Processing</p>
             </div>
+        </div>
 
-            <!-- Three Column Layout -->
-            <div class="optimizer-layout">
-                <!-- Left Column: Input Parameters -->
-                <div class="optimizer-column left-column">
-                    <div class="optimizer-card">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            Treatment Parameters
-                        </h2>
-
-                        <form id="temperatureForm">
-                            <!-- Treatment Type Selection -->
-                            <div class="form-section">
-                                <label class="section-label">Step 1: Select Treatment Type</label>
-                                <div class="treatment-types">
-                                    <div class="treatment-option" data-type="heat">
-                                        <input type="radio" name="feed_type" value="heat" id="type-heat">
-                                        <label for="type-heat">
-                                            <div class="option-icon">🔥</div>
-                                            <div class="option-name">Heat Treatment</div>
-                                            <div class="option-energy">High Energy</div>
-                                        </label>
-                                    </div>
-                                    <div class="treatment-option selected" data-type="fermentation">
-                                        <input type="radio" name="feed_type" value="fermentation" id="type-fermentation"
-                                            checked>
-                                        <label for="type-fermentation">
-                                            <div class="option-icon">🧪</div>
-                                            <div class="option-name">Fermentation</div>
-                                            <div class="option-energy">Low Energy</div>
-                                        </label>
-                                    </div>
-                                    <div class="treatment-option" data-type="steam">
-                                        <input type="radio" name="feed_type" value="steam" id="type-steam">
-                                        <label for="type-steam">
-                                            <div class="option-icon">💨</div>
-                                            <div class="option-name">Steam Treatment</div>
-                                            <div class="option-energy">Medium Energy</div>
-                                        </label>
-                                    </div>
-                                    <div class="treatment-option" data-type="hybrid">
-                                        <input type="radio" name="feed_type" value="hybrid" id="type-hybrid">
-                                        <label for="type-hybrid">
-                                            <div class="option-icon">⚡</div>
-                                            <div class="option-name">Hybrid Treatment</div>
-                                            <div class="option-energy">Medium Energy</div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Parameters -->
-                            <div class="form-section">
-                                <label class="section-label">Step 2: Adjust Treatment Parameters</label>
-
-                                <!-- Temperature -->
-                                <div class="parameter-group">
-                                    <div class="parameter-header">
-                                        <label>Temperature</label>
-                                        <span class="parameter-value" id="tempValue">56°C</span>
-                                    </div>
-                                    <div class="parameter-range">
-                                        <span class="range-min">30°C</span>
-                                        <input type="range" id="temperature" name="current_temperature" min="30"
-                                            max="120" value="56" step="1">
-                                        <span class="range-max">120°C</span>
-                                    </div>
-                                    <div class="parameter-hint">Range: 30°C - 120°C</div>
-                                </div>
-
-                                <!-- Duration -->
-                                <div class="parameter-group">
-                                    <div class="parameter-header">
-                                        <label>Duration</label>
-                                        <span class="parameter-value" id="durationValue">70min</span>
-                                    </div>
-                                    <div class="parameter-range">
-                                        <span class="range-min">10min</span>
-                                        <input type="range" id="duration" name="storage_duration" min="10" max="180"
-                                            value="70" step="5">
-                                        <span class="range-max">180min</span>
-                                    </div>
-                                    <div class="parameter-hint">Range: 10min - 180min</div>
-                                </div>
-
-                                <!-- Moisture -->
-                                <div class="parameter-group">
-                                    <div class="parameter-header">
-                                        <label>Moisture Content</label>
-                                        <span class="parameter-value" id="moistureValue">11%</span>
-                                    </div>
-                                    <div class="parameter-range">
-                                        <span class="range-min">5%</span>
-                                        <input type="range" id="moisture" name="ambient_humidity" min="5" max="25"
-                                            value="11" step="1">
-                                        <span class="range-max">25%</span>
-                                    </div>
-                                    <div class="parameter-hint">Range: 5% - 25%</div>
-                                </div>
-
-                                <!-- Batch Size -->
-                                <div class="parameter-group">
-                                    <div class="parameter-header">
-                                        <label>Batch Size</label>
-                                        <span class="parameter-value" id="batchValue">1600kg</span>
-                                    </div>
-                                    <div class="parameter-range">
-                                        <span class="range-min">100kg</span>
-                                        <input type="range" id="batchSize" name="batch_size" min="100" max="5000"
-                                            value="1600" step="100">
-                                        <span class="range-max">5000kg</span>
-                                    </div>
-                                    <div class="parameter-hint">Range: 100kg - 5000kg</div>
-                                </div>
-
-                                <!-- Equipment Status -->
-                                <div class="parameter-group">
-                                    <label>Equipment Status</label>
-                                    <select name="equipment_status" id="equipmentStatus">
-                                        <option value="poor">Poor</option>
-                                        <option value="moderate" selected>Moderate</option>
-                                        <option value="good">Good</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Action Buttons -->
-                            <div class="form-actions">
-                                <button type="button" class="btn-reset" id="resetBtn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <polyline points="1 4 1 10 7 10"></polyline>
-                                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10"></path>
-                                    </svg>
-                                    Reset to Defaults
-                                </button>
-                                <button type="submit" class="btn-simulate" id="simulateBtn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    Run Simulation
-                                </button>
-                            </div>
-                        </form>
+        <!-- AI-Generated Technical Report Section -->
+        <div class="ai-report-section">
+            <div class="report-container">
+                <!-- Report Header -->
+                <div class="report-header">
+                    <div class="ai-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                        AI-Generated Technical Report
                     </div>
+                    <h2 class="report-title">Temperature & Process Control Optimizer on Feedstock</h2>
+                    <p class="report-meta">Generated by AmulFeedGuard AI System | Last Updated: January 2026</p>
                 </div>
 
-                <!-- Center Column: Analysis Panel with Manual Navigation -->
-                <div class="optimizer-column center-column">
-                    <div class="optimizer-card analysis-panel" id="analysisPanel">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                            </svg>
-                            Live Analysis
-                            <span id="stepIndicator"
-                                style="margin-left: auto; font-size: 0.9rem; color: #6B7280;"></span>
-                        </h2>
+                <!-- Featured Image -->
+                <div class="report-image-container">
+                    <img src="images/industrial-process-control.jpg" alt="Industrial Process Control System"
+                        class="report-image">
+                    <div class="image-caption">Modern industrial process control facility with integrated temperature
+                        monitoring and optimization systems</div>
+                </div>
 
-                        <!-- Analysis Animation Container -->
-                        <div class="analysis-container" id="analysisContainer">
-                            <div class="analysis-placeholder">
-                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
-                                    stroke-width="2">
-                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                                </svg>
-                                <p>Click "Run Simulation" to start analysis</p>
+                <!-- Report Content -->
+                <div class="report-content">
+                    <!-- Introduction -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">1</span>
+                            Introduction
+                        </h3>
+                        <p class="section-text">
+                            In industrial and manufacturing environments, the efficiency, safety, and quality of output
+                            are heavily dependent on how accurately raw materials—commonly referred to as feedstock—are
+                            processed. Feedstock may undergo thermal, chemical, mechanical, or biological
+                            transformations, all of which are highly sensitive to temperature and process conditions.
+                        </p>
+                        <p class="section-text">
+                            A Temperature & Process Control Optimizer on Feedstock is an advanced control framework that
+                            continuously monitors, analyzes, and regulates temperature along with associated process
+                            parameters to ensure optimal operating conditions. By integrating sensors, control
+                            algorithms, and real-time feedback mechanisms, the optimizer minimizes variability, prevents
+                            feedstock degradation, and maximizes process efficiency. This system is especially critical
+                            in industries where even minor temperature deviations can significantly affect yield,
+                            quality, or safety.
+                        </p>
+                    </section>
+
+                    <!-- Importance of Temperature Control -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">2</span>
+                            Importance of Temperature Control in Feedstock Processing
+                        </h3>
+                        <p class="section-text">
+                            Temperature is a dominant factor influencing feedstock behavior during processing. Improper
+                            temperature regulation can lead to inefficiencies, material loss, and unsafe operating
+                            conditions.
+                        </p>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.1 Regulation of Reaction Kinetics</h4>
+                            <p class="section-text">
+                                Temperature directly affects the rate at which physical and chemical reactions occur
+                                within the feedstock. When maintained at optimal levels, reactions proceed at a
+                                controlled and predictable rate, ensuring consistent output. Excessively high
+                                temperatures can accelerate reactions uncontrollably, while low temperatures may slow
+                                reactions, leading to incomplete processing and reduced efficiency.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.2 Preservation of Feedstock Quality</h4>
+                            <p class="section-text">
+                                Many feedstocks are thermally sensitive and can degrade, denature, or lose functional
+                                properties when exposed to unsuitable temperatures. Precise temperature control prevents
+                                overheating, thermal cracking, or unwanted phase changes, thereby preserving the
+                                structural and chemical integrity of the feedstock throughout the process.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.3 Optimization of Energy Consumption</h4>
+                            <p class="section-text">
+                                Accurate temperature regulation ensures that only the required amount of thermal energy
+                                is supplied to the system. This prevents excessive heating or cooling, leading to
+                                significant reductions in energy wastage. Optimized energy usage not only lowers
+                                operational costs but also contributes to sustainable and environmentally responsible
+                                processing.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.4 Enhancement of Process Safety</h4>
+                            <p class="section-text">
+                                Uncontrolled temperature rise can result in pressure build-up, equipment damage, or
+                                hazardous operating conditions such as fires or explosions. A temperature control
+                                optimizer continuously monitors thermal behavior and initiates corrective actions,
+                                thereby enhancing system safety and reducing the risk of accidents.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Process Control Optimization -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">3</span>
+                            Concept of Process Control Optimization
+                        </h3>
+                        <p class="section-text">
+                            Process control optimization involves the intelligent regulation of operational variables to
+                            achieve maximum performance under dynamic conditions.
+                        </p>
+
+                        <div class="key-points-grid">
+                            <div class="key-point-card">
+                                <div class="key-point-icon">📊</div>
+                                <h5 class="key-point-title">Consistency in Processing</h5>
+                                <p class="key-point-text">Ensures uniform conditions, reducing batch-to-batch variations
+                                    and maintaining standardized product quality.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">⚡</div>
+                                <h5 class="key-point-title">Maximization of Efficiency</h5>
+                                <p class="key-point-text">Continuously adjusts parameters to optimal levels, improving
+                                    throughput and conversion efficiency.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">🎯</div>
+                                <h5 class="key-point-title">Reduction of Variability</h5>
+                                <p class="key-point-text">Compensates for external disturbances in real time, ensuring
+                                    stable operation.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">💰</div>
+                                <h5 class="key-point-title">Cost Optimization</h5>
+                                <p class="key-point-text">Reduces excessive use of raw materials, energy, and labor,
+                                    lowering operational costs.</p>
                             </div>
                         </div>
+                    </section>
 
-                        <!-- Navigation Controls -->
-                        <div class="analysis-navigation" id="analysisNavigation" style="display: none;">
-                            <button class="nav-btn prev-btn" id="prevBtn" disabled>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                </svg>
-                                Previous
-                            </button>
-                            <div class="nav-dots" id="navDots"></div>
-                            <button class="nav-btn next-btn" id="nextBtn">
-                                Next
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </button>
+                    <!-- System Architecture -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">4</span>
+                            System Architecture
+                        </h3>
+                        <p class="section-text">
+                            The optimizer consists of multiple integrated components working together to achieve precise
+                            control.
+                        </p>
+
+                        <div class="architecture-list">
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.1</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Sensors and Data Acquisition Units</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>High-Accuracy Temperature Sensors:</strong> RTDs, thermocouples, and
+                                            infrared sensors provide precise and continuous temperature measurements.
+                                        </li>
+                                        <li><strong>Multi-Parameter Sensing:</strong> Monitors pressure, flow rate,
+                                            viscosity, and humidity for comprehensive understanding.</li>
+                                        <li><strong>Real-Time Data Acquisition:</strong> Collects and digitizes sensor
+                                            outputs with minimal latency.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.2</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Control Unit</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Centralized Decision Processing:</strong> PLC or microcontroller
+                                            processes sensor data and executes control logic.</li>
+                                        <li><strong>High Reliability:</strong> Designed for continuous industrial
+                                            operation under harsh conditions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.3</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Actuators and Control Mechanisms</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Thermal Regulation Devices:</strong> Heating elements, cooling
+                                            jackets, and heat exchangers.</li>
+                                        <li><strong>Flow and Mixing Control:</strong> Valves, pumps, and mixers regulate
+                                            material flow and homogeneity.</li>
+                                        <li><strong>Dynamic Response Capability:</strong> Rapid response to control
+                                            signals for real-time correction.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.4</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Optimization and Decision Algorithms</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>PID Control Algorithms:</strong> Maintain temperature stability by
+                                            minimizing error.</li>
+                                        <li><strong>Model Predictive Control (MPC):</strong> Anticipates future behavior
+                                            and applies proactive adjustments.</li>
+                                        <li><strong>AI and Machine Learning Models:</strong> Learn optimal control
+                                            strategies from historical data.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.5</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">User Interface and Monitoring Dashboard</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Real-Time Visualization:</strong> Live temperature trends, alarms,
+                                            and process metrics.</li>
+                                        <li><strong>Alert and Fault Notification:</strong> Automated alerts for abnormal
+                                            conditions.</li>
+                                        <li><strong>Manual Control and Overrides:</strong> Operator intervention during
+                                            maintenance or emergencies.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+                    </section>
 
-                        <!-- Analysis Caption -->
-                        <div class="analysis-caption" id="analysisCaption"></div>
+                    <!-- Working Principle -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">5</span>
+                            Working Principle of the Optimizer
+                        </h3>
+                        <p class="section-text">
+                            The system operates on a closed-loop feedback mechanism:
+                        </p>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Continuous Data Monitoring</h5>
+                                    <p class="step-text">Ensures accurate awareness of feedstock conditions</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Deviation Analysis</h5>
+                                    <p class="step-text">Identifies differences between actual and desired values</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Algorithmic Decision Making</h5>
+                                    <p class="step-text">Determines corrective actions</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Actuator Response</h5>
+                                    <p class="step-text">Modifies process conditions accordingly</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Feedback Validation</h5>
+                                    <p class="step-text">Confirms system stability and effectiveness</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-text highlight-text">
+                            This loop operates continuously to maintain optimal conditions.
+                        </p>
+                    </section>
+
+                    <!-- Feedstock Types -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">6</span>
+                            Feedstock Types and Optimization Requirements
+                        </h3>
+
+                        <div class="feedstock-types">
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">🧱</div>
+                                <h5 class="feedstock-title">Solid Feedstock</h5>
+                                <p class="feedstock-text">Requires gradual and uniform heating to avoid thermal stress,
+                                    cracking, or uneven processing. Optimization focuses on controlled heating rates and
+                                    temperature distribution.</p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">💧</div>
+                                <h5 class="feedstock-title">Liquid Feedstock</h5>
+                                <p class="feedstock-text">Highly sensitive to temperature changes that affect viscosity
+                                    and reaction rates. The optimizer ensures stable thermal conditions and consistent
+                                    flow characteristics.</p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">💨</div>
+                                <h5 class="feedstock-title">Gaseous Feedstock</h5>
+                                <p class="feedstock-text">Responds rapidly to thermal changes, requiring fast-acting
+                                    control systems. Optimization prioritizes safety, pressure stability, and precise
+                                    temperature regulation.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Advantages -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">7</span>
+                            Advantages of Temperature & Process Control Optimization
+                        </h3>
+
+                        <div class="advantages-grid">
+                            <div class="advantage-item">
+                                <div class="advantage-icon">✅</div>
+                                <h5 class="advantage-title">Improved Operational Performance</h5>
+                                <p class="advantage-text">Enhances throughput, reduces downtime, and ensures smooth
+                                    system operation under varying conditions.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">💵</div>
+                                <h5 class="advantage-title">Economic Efficiency</h5>
+                                <p class="advantage-text">Reduced energy consumption and minimized feedstock wastage
+                                    significantly lower operational costs and improve profitability.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">🌱</div>
+                                <h5 class="advantage-title">Environmental Sustainability</h5>
+                                <p class="advantage-text">Efficient thermal management reduces emissions, energy loss,
+                                    and environmental impact, supporting sustainable industrial practices.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">🛡️</div>
+                                <h5 class="advantage-title">Enhanced Safety and Reliability</h5>
+                                <p class="advantage-text">Early fault detection and controlled operation reduce risks
+                                    associated with overheating, pressure surges, and system failures.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Industrial Applications -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">8</span>
+                            Industrial Applications
+                        </h3>
+                        <p class="section-text">
+                            This optimization system is extensively applied in:
+                        </p>
+                        <ul class="applications-list">
+                            <li>Biofuel and renewable energy processing</li>
+                            <li>Chemical and pharmaceutical manufacturing</li>
+                            <li>Food and beverage industries</li>
+                            <li>Metallurgical and material processing</li>
+                            <li>Waste-to-energy and recycling plants</li>
+                        </ul>
+                    </section>
+
+                    <!-- Challenges -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">9</span>
+                            Challenges and Limitations
+                        </h3>
+                        <p class="section-text">
+                            Despite its benefits, challenges include high initial costs, sensor maintenance
+                            requirements, and the need for accurate process modeling. However, these challenges can be
+                            mitigated through robust design and advanced analytics.
+                        </p>
+                    </section>
+
+                    <!-- Future Scope -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">10</span>
+                            Future Scope
+                        </h3>
+                        <p class="section-text">
+                            Future developments include AI-driven autonomous optimization, digital twins, IoT-based
+                            remote monitoring, and predictive maintenance systems aligned with Industry 4.0.
+                        </p>
+                    </section>
+
+                    <!-- Conclusion -->
+                    <section class="report-section conclusion">
+                        <h3 class="section-title">
+                            <span class="section-number">11</span>
+                            Conclusion
+                        </h3>
+                        <p class="section-text">
+                            A Temperature & Process Control Optimizer on Feedstock is a critical enabler of efficient,
+                            safe, and sustainable industrial processing. By intelligently managing thermal and
+                            operational parameters, it maximizes feedstock utilization, improves product quality, and
+                            ensures long-term operational excellence.
+                        </p>
+                    </section>
+
+                    <!-- AI Attribution Footer -->
+                    <div class="ai-attribution">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                        <span>This technical report was generated by AmulFeedGuard AI System based on industry best
+                            practices and scientific research in process control optimization.</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <style>
+        /* AI Report Section Styles */
+        .ai-report-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 3rem 3rem 2rem;
+            text-align: center;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .report-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.2;
+        }
+
+        .report-meta {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .report-image-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .report-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .report-content {
+            padding: 3rem;
+        }
+
+        .report-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .highlight-text {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        .subsection {
+            margin: 2rem 0 2rem 2rem;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Key Points Grid */
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .key-point-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #bae6fd;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .key-point-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
+        }
+
+        .key-point-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-point-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-point-text {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Architecture List */
+        .architecture-list {
+            margin-top: 2rem;
+        }
+
+        .architecture-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .architecture-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .architecture-content {
+            flex: 1;
+        }
+
+        .architecture-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+        }
+
+        .architecture-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .architecture-details li {
+            padding: 0.5rem 0;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .architecture-details strong {
+            color: #1e40af;
+        }
+
+        /* Workflow Steps */
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .workflow-step {
+            flex-shrink: 0;
+            background: white;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-text {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .workflow-arrow {
+            font-size: 2rem;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+
+        /* Feedstock Types */
+        .feedstock-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feedstock-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .feedstock-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feedstock-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #78350f;
+            margin-bottom: 0.75rem;
+        }
+
+        .feedstock-text {
+            font-size: 0.95rem;
+            color: #92400e;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Advantages Grid */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .advantage-item {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #6ee7b7;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .advantage-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 0.5rem;
+        }
+
+        .advantage-text {
+            font-size: 0.95rem;
+            color: #047857;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Applications List */
+        .applications-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .applications-list li {
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 0.5rem;
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0 8px 8px 0;
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border: 2px solid #a78bfa;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        /* AI Attribution */
+        .ai-attribution {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        .ai-attribution svg {
+            flex-shrink: 0;
+            color: #3b82f6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ai-report-section {
+                padding: 2rem 1rem;
+            }
+
+            .report-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .report-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .workflow-arrow {
+                transform: rotate(90deg);
+                margin: 0.5rem 0;
+            }
+
+            .subsection {
+                margin-left: 0;
+            }
+        }
+    </style>
 
     <script src="js/temperature.js"></script>
 </body>

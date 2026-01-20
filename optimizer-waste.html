@@ -58,199 +58,862 @@
                     Back to Optimizers
                 </div>
                 <h1 class="optimizer-title">Waste Reduction Optimizer</h1>
-                <p class="optimizer-subtitle">Minimize spoilage and maximize salvageable feed quantity through optimized
-                    storage and handling</p>
+                <p class="optimizer-subtitle">AI-Generated Technical Report on Feedstock Waste Minimization</p>
             </div>
+        </div>
 
-            <!-- Three Column Layout -->
-            <div class="optimizer-layout">
-                <!-- Left Column: Input Parameters -->
-                <div class="optimizer-column left-column">
-                    <div class="optimizer-card">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="3 6 5 6 21 6"></polyline>
-                                <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2">
-                                </path>
-                            </svg>
-                            Waste Parameters
-                        </h2>
-
-                        <form id="wasteForm">
-                            <!-- Initial Quantity -->
-                            <div class="form-section">
-                                <label class="section-label">Initial Feed Quantity</label>
-                                <div class="parameter-group">
-                                    <div class="parameter-header">
-                                        <label>Quantity (kg)</label>
-                                        <span class="parameter-value" id="quantityValue">5000kg</span>
-                                    </div>
-                                    <div class="parameter-range">
-                                        <span class="range-min">100kg</span>
-                                        <input type="range" id="quantity" name="initial_quantity" min="100" max="10000"
-                                            value="5000" step="100">
-                                        <span class="range-max">10000kg</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Spoilage Percentage -->
-                            <div class="form-section">
-                                <div class="parameter-group">
-                                    <div class="parameter-header">
-                                        <label>Current Spoilage Rate</label>
-                                        <span class="parameter-value" id="spoilageValue">12%</span>
-                                    </div>
-                                    <div class="parameter-range">
-                                        <span class="range-min">0%</span>
-                                        <input type="range" id="spoilage" name="spoilage_percentage" min="0" max="50"
-                                            value="12" step="1">
-                                        <span class="range-max">50%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Storage Method -->
-                            <div class="form-section">
-                                <label class="section-label">Storage Conditions</label>
-                                <div class="parameter-group">
-                                    <label>Storage Method</label>
-                                    <select name="storage_method" id="storageMethod">
-                                        <option value="ambient">Ambient Temperature</option>
-                                        <option value="refrigerated" selected>Refrigerated</option>
-                                        <option value="frozen">Frozen</option>
-                                        <option value="controlled">Controlled Atmosphere</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Handling Frequency -->
-                            <div class="form-section">
-                                <div class="parameter-group">
-                                    <label>Handling Frequency</label>
-                                    <select name="handling_frequency" id="handlingFrequency">
-                                        <option value="hourly">Hourly</option>
-                                        <option value="daily" selected>Daily</option>
-                                        <option value="weekly">Weekly</option>
-                                        <option value="monthly">Monthly</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Contamination History -->
-                            <div class="form-section">
-                                <div class="parameter-group">
-                                    <label>Contamination History</label>
-                                    <select name="contamination_history" id="contaminationHistory">
-                                        <option value="none">None</option>
-                                        <option value="low" selected>Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Action Buttons -->
-                            <div class="form-actions">
-                                <button type="button" class="btn-reset" id="resetBtn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <polyline points="1 4 1 10 7 10"></polyline>
-                                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10"></path>
-                                    </svg>
-                                    Reset to Defaults
-                                </button>
-                                <button type="submit" class="btn-simulate" id="simulateBtn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    Optimize Waste
-                                </button>
-                            </div>
-                        </form>
-
-                        <!-- Current Configuration Summary -->
-                        <div class="config-summary" id="configSummary">
-                            <h3>Current Configuration</h3>
-                            <div class="config-grid">
-                                <div class="config-item">
-                                    <span class="config-label">Initial Quantity:</span>
-                                    <span class="config-value" id="summaryQuantity">5000 kg</span>
-                                </div>
-                                <div class="config-item">
-                                    <span class="config-label">Spoilage Rate:</span>
-                                    <span class="config-value" id="summarySpoilage">12%</span>
-                                </div>
-                                <div class="config-item">
-                                    <span class="config-label">Storage:</span>
-                                    <span class="config-value" id="summaryStorage">Refrigerated</span>
-                                </div>
-                                <div class="config-item">
-                                    <span class="config-label">Handling:</span>
-                                    <span class="config-value" id="summaryHandling">Daily</span>
-                                </div>
-                            </div>
-                        </div>
+        <!-- AI-Generated Technical Report Section -->
+        <div class="ai-report-section">
+            <div class="report-container">
+                <!-- Report Header -->
+                <div class="report-header">
+                    <div class="ai-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                        AI-Generated Technical Report
                     </div>
+                    <h2 class="report-title">Waste Reduction Optimization on Feedstock</h2>
+                    <p class="report-meta">Generated by AmulFeedGuard AI System | Last Updated: January 2026</p>
                 </div>
 
-                <!-- Center Column: Analysis Panel -->
-                <div class="optimizer-column center-column">
-                    <div class="optimizer-card analysis-panel" id="analysisPanel">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                            </svg>
-                            Waste Analysis
-                        </h2>
-
-                        <div class="analysis-container" id="analysisContainer">
-                            <div class="analysis-placeholder">
-                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
-                                    stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2">
-                                    </path>
-                                </svg>
-                                <p>Click "Optimize Waste" to start analysis</p>
-                            </div>
-                        </div>
-
-                        <div class="analysis-caption" id="analysisCaption"></div>
-                    </div>
+                <!-- Featured Image -->
+                <div class="report-image-container">
+                    <img src="images/waste-reduction-feedlot.jpg" alt="Waste Reduction System in Cattle Feedlot"
+                        class="report-image">
+                    <div class="image-caption">Modern cattle feedlot with integrated waste-to-feed optimization system
+                        monitoring feedstock efficiency</div>
                 </div>
 
-                <!-- Right Column: Results -->
-                <div class="optimizer-column right-column">
-                    <div class="optimizer-card results-panel" id="resultsPanel">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="9 11 12 14 22 4"></polyline>
-                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
-                            </svg>
-                            Optimization Results
-                        </h2>
+                <!-- Report Content -->
+                <div class="report-content">
+                    <!-- Introduction -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">1</span>
+                            Introduction
+                        </h3>
+                        <p class="section-text">
+                            In modern industrial processing systems, efficient utilization of feedstock is a critical
+                            determinant of economic viability, environmental sustainability, and operational excellence.
+                            Feedstock waste—material that is underutilized, discarded, or degraded during
+                            processing—represents a significant loss of resources, energy, and potential output.
+                        </p>
+                        <p class="section-text">
+                            A Waste Reduction Optimization on Feedstock system focuses on identifying, minimizing, and
+                            eliminating material losses throughout the processing lifecycle. By employing intelligent
+                            monitoring, data-driven decision-making, and optimized process control, such systems ensure
+                            that the maximum possible value is extracted from every unit of feedstock. This approach
+                            aligns with principles of lean manufacturing, circular economy, and sustainable engineering.
+                        </p>
+                    </section>
 
-                        <div class="results-content" id="resultsContent">
-                            <div class="results-placeholder">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
-                                    stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                </svg>
-                                <p>Results will appear here after optimization</p>
+                    <!-- Importance of Waste Reduction -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">2</span>
+                            Importance of Waste Reduction in Feedstock Processing
+                        </h3>
+                        <p class="section-text">
+                            Waste reduction is not merely a cost-saving measure; it is a strategic requirement for
+                            sustainable industrial operations.
+                        </p>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.1 Maximization of Feedstock Utilization</h4>
+                            <p class="section-text">
+                                Effective waste reduction ensures that a higher proportion of feedstock is converted
+                                into usable output rather than being lost as scrap, residue, or emissions. Optimized
+                                utilization improves material efficiency and increases overall production yield.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.2 Reduction of Operational Costs</h4>
+                            <p class="section-text">
+                                Waste generation increases costs associated with raw material procurement, waste
+                                handling, treatment, and disposal. Minimizing feedstock waste significantly lowers these
+                                expenses, directly improving profitability and operational efficiency.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.3 Environmental Sustainability and Compliance</h4>
+                            <p class="section-text">
+                                Excessive waste contributes to environmental pollution, landfill burden, and greenhouse
+                                gas emissions. Waste optimization reduces the ecological footprint of industrial
+                                processes and helps organizations comply with environmental regulations and
+                                sustainability standards.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.4 Improvement in Process Stability and Quality</h4>
+                            <p class="section-text">
+                                High waste levels often indicate process inefficiencies or instability. By reducing
+                                waste, the process becomes more controlled, leading to consistent quality and reliable
+                                system performance.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Concept of Waste Reduction Optimization -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">3</span>
+                            Concept of Waste Reduction Optimization
+                        </h3>
+                        <p class="section-text">
+                            Waste reduction optimization involves the systematic identification and elimination of
+                            inefficiencies that lead to feedstock loss.
+                        </p>
+
+                        <div class="key-points-grid">
+                            <div class="key-point-card">
+                                <div class="key-point-icon">🔍</div>
+                                <h5 class="key-point-title">Identification of Waste Sources</h5>
+                                <p class="key-point-text">Analyzing the entire process to locate points where feedstock
+                                    is lost due to spillage, incomplete reactions, or equipment inefficiencies.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">⚙️</div>
+                                <h5 class="key-point-title">Process Parameter Optimization</h5>
+                                <p class="key-point-text">Optimizing temperature, pressure, and flow conditions to
+                                    minimize losses caused by off-spec processing.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">📊</div>
+                                <h5 class="key-point-title">Real-Time Monitoring</h5>
+                                <p class="key-point-text">Continuous monitoring enables immediate detection of abnormal
+                                    waste generation and instant corrective response.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">📈</div>
+                                <h5 class="key-point-title">Data-Driven Decision Making</h5>
+                                <p class="key-point-text">Analyzing historical and real-time data to identify patterns
+                                    and enable proactive waste reduction strategies.</p>
                             </div>
                         </div>
+                    </section>
+
+                    <!-- System Architecture -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">4</span>
+                            System Architecture
+                        </h3>
+                        <p class="section-text">
+                            A waste reduction optimizer integrates sensing, control, analytics, and execution layers.
+                        </p>
+
+                        <div class="architecture-list">
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.1</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Feedstock Monitoring Sensors</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Material Flow Sensors:</strong> Measure input and output quantities
+                                            to detect discrepancies indicating material loss.</li>
+                                        <li><strong>Quality and Composition Sensors:</strong> Identify off-spec
+                                            feedstock that may lead to rejection or wastage.</li>
+                                        <li><strong>Loss Detection Sensors:</strong> Detect leaks, spills, or abnormal
+                                            residue accumulation in the system.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.2</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Control and Processing Unit</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Centralized Data Processing:</strong> Aggregates sensor data to
+                                            assess feedstock efficiency and waste levels.</li>
+                                        <li><strong>Decision Logic Execution:</strong> Implements corrective strategies
+                                            to minimize losses in real time.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.3</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Waste Handling and Recovery Mechanisms</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Material Recovery Units:</strong> Capture and reprocess partially
+                                            used or rejected feedstock.</li>
+                                        <li><strong>Recycling and Reuse Systems:</strong> Enable circular utilization of
+                                            waste materials wherever feasible.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.4</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Optimization and Analytical Algorithms</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Rule-Based Optimization:</strong> Uses predefined logic to reduce
+                                            known waste scenarios.</li>
+                                        <li><strong>Statistical Process Control (SPC):</strong> Detects trends and
+                                            deviations leading to increased waste.</li>
+                                        <li><strong>Machine Learning Models:</strong> Predict potential waste generation
+                                            based on operating conditions and feedstock properties.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.5</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Operator Interface and Reporting Dashboard</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Waste Metrics Visualization:</strong> Displays waste generation
+                                            trends, loss points, and efficiency indicators.</li>
+                                        <li><strong>Alert and Recommendation System:</strong> Notifies operators and
+                                            suggests corrective actions when waste thresholds are exceeded.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Working Principle -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">5</span>
+                            Working Principle of Waste Reduction Optimization
+                        </h3>
+                        <p class="section-text">
+                            The optimizer follows a continuous improvement loop:
+                        </p>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Measurement</h5>
+                                    <p class="step-text">Input vs Output Feedstock to quantify waste</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Analysis</h5>
+                                    <p class="step-text">Process Losses to determine causes</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Optimization Decisions</h5>
+                                    <p class="step-text">Adjust process parameters</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Implementation</h5>
+                                    <p class="step-text">Corrective Actions via control systems</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Feedback Evaluation</h5>
+                                    <p class="step-text">Validate waste reduction effectiveness</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-text highlight-text">
+                            This closed-loop system ensures sustained improvement in feedstock efficiency.
+                        </p>
+                    </section>
+
+                    <!-- Types of Feedstock Waste -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">6</span>
+                            Types of Feedstock Waste
+                        </h3>
+
+                        <div class="feedstock-types">
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">⚗️</div>
+                                <h5 class="feedstock-title">Process-Induced Waste</h5>
+                                <p class="feedstock-text">Generated due to suboptimal process conditions such as
+                                    incorrect temperature, pressure, or reaction time. Optimization focuses on refining
+                                    these parameters.</p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">📦</div>
+                                <h5 class="feedstock-title">Handling and Transfer Losses</h5>
+                                <p class="feedstock-text">Occurs during feedstock transportation, storage, or transfer
+                                    between units. Improved handling systems and automation significantly reduce these
+                                    losses.</p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">❌</div>
+                                <h5 class="feedstock-title">Quality Rejection Waste</h5>
+                                <p class="feedstock-text">Feedstock rejected due to not meeting quality standards.
+                                    Advanced monitoring and early detection prevent such waste.</p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">♻️</div>
+                                <h5 class="feedstock-title">Residual and Byproduct Waste</h5>
+                                <p class="feedstock-text">Includes residues or byproducts left after processing.
+                                    Optimization emphasizes recovery, reuse, or conversion into value-added products.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Advantages -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">7</span>
+                            Advantages of Waste Reduction Optimization
+                        </h3>
+
+                        <div class="advantages-grid">
+                            <div class="advantage-item">
+                                <div class="advantage-icon">📊</div>
+                                <h5 class="advantage-title">Enhanced Material Efficiency</h5>
+                                <p class="advantage-text">Higher conversion of feedstock into usable output improves
+                                    resource utilization and reduces dependency on raw material supply.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">💰</div>
+                                <h5 class="advantage-title">Cost Savings and Economic Benefits</h5>
+                                <p class="advantage-text">Reduced raw material usage, disposal costs, and reprocessing
+                                    efforts lead to significant financial savings.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">🌍</div>
+                                <h5 class="advantage-title">Environmental Impact Reduction</h5>
+                                <p class="advantage-text">Lower waste generation minimizes pollution, landfill use, and
+                                    carbon emissions, supporting sustainable development goals.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">✅</div>
+                                <h5 class="advantage-title">Improved Regulatory Compliance</h5>
+                                <p class="advantage-text">Consistent waste control ensures adherence to environmental
+                                    and industrial regulations.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Industrial Applications -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">8</span>
+                            Industrial Applications
+                        </h3>
+                        <p class="section-text">
+                            Waste reduction optimization is widely adopted in:
+                        </p>
+                        <ul class="applications-list">
+                            <li>Biofuel and energy conversion systems</li>
+                            <li>Chemical and pharmaceutical manufacturing</li>
+                            <li>Food processing and dairy industries</li>
+                            <li>Metallurgical and materials engineering</li>
+                            <li>Waste management and recycling plants</li>
+                        </ul>
+                    </section>
+
+                    <!-- Challenges -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">9</span>
+                            Challenges and Limitations
+                        </h3>
+                        <p class="section-text">
+                            Challenges include accurate waste measurement, variability in feedstock quality, and
+                            integration with existing systems. Advanced sensing and AI-based analytics help overcome
+                            these limitations.
+                        </p>
+                    </section>
+
+                    <!-- Future Scope -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">10</span>
+                            Future Scope and Innovations
+                        </h3>
+                        <p class="section-text">
+                            Future advancements include:
+                        </p>
+                        <ul class="applications-list">
+                            <li>AI-driven waste prediction and prevention</li>
+                            <li>Digital twins for feedstock efficiency simulation</li>
+                            <li>Circular economy-based waste valorization</li>
+                            <li>IoT-enabled remote waste monitoring systems</li>
+                        </ul>
+                    </section>
+
+                    <!-- Conclusion -->
+                    <section class="report-section conclusion">
+                        <h3 class="section-title">
+                            <span class="section-number">11</span>
+                            Conclusion
+                        </h3>
+                        <p class="section-text">
+                            A Waste Reduction Optimization on Feedstock system is essential for achieving efficient,
+                            economical, and environmentally responsible industrial operations. By minimizing feedstock
+                            losses and maximizing material utilization, such systems transform waste management from a
+                            reactive necessity into a proactive optimization strategy.
+                        </p>
+                    </section>
+
+                    <!-- AI Attribution Footer -->
+                    <div class="ai-attribution">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                        <span>This technical report was generated by AmulFeedGuard AI System based on industry best
+                            practices and scientific research in waste reduction optimization.</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <style>
+        /* Reuse the same AI Report Section Styles from temperature optimizer */
+        .ai-report-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 3rem 3rem 2rem;
+            text-align: center;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .report-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.2;
+        }
+
+        .report-meta {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .report-image-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .report-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .report-content {
+            padding: 3rem;
+        }
+
+        .report-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #10b981;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .highlight-text {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            color: #065f46;
+        }
+
+        .subsection {
+            margin: 2rem 0 2rem 2rem;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Key Points Grid */
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .key-point-card {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border: 2px solid #6ee7b7;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .key-point-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15);
+        }
+
+        .key-point-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-point-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-point-text {
+            font-size: 0.95rem;
+            color: #047857;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Architecture List */
+        .architecture-list {
+            margin-top: 2rem;
+        }
+
+        .architecture-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #10b981;
+        }
+
+        .architecture-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .architecture-content {
+            flex: 1;
+        }
+
+        .architecture-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+        }
+
+        .architecture-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .architecture-details li {
+            padding: 0.5rem 0;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .architecture-details strong {
+            color: #065f46;
+        }
+
+        /* Workflow Steps */
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .workflow-step {
+            flex-shrink: 0;
+            background: white;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-text {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .workflow-arrow {
+            font-size: 2rem;
+            color: #10b981;
+            flex-shrink: 0;
+        }
+
+        /* Feedstock Types */
+        .feedstock-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feedstock-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .feedstock-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feedstock-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #78350f;
+            margin-bottom: 0.75rem;
+        }
+
+        .feedstock-text {
+            font-size: 0.95rem;
+            color: #92400e;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Advantages Grid */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .advantage-item {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #6ee7b7;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .advantage-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 0.5rem;
+        }
+
+        .advantage-text {
+            font-size: 0.95rem;
+            color: #047857;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Applications List */
+        .applications-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .applications-list li {
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 0.5rem;
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            border-radius: 0 8px 8px 0;
+            color: #065f46;
+            font-weight: 600;
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border: 2px solid #a78bfa;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        /* AI Attribution */
+        .ai-attribution {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        .ai-attribution svg {
+            flex-shrink: 0;
+            color: #10b981;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ai-report-section {
+                padding: 2rem 1rem;
+            }
+
+            .report-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .report-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .workflow-arrow {
+                transform: rotate(90deg);
+                margin: 0.5rem 0;
+            }
+
+            .subsection {
+                margin-left: 0;
+            }
+        }
+    </style>
 
     <script src="js/waste.js"></script>
 </body>

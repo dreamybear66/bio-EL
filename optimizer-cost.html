@@ -57,127 +57,863 @@
                     Back to Optimizers
                 </div>
                 <h1 class="optimizer-title">Cost-Effective Production Optimizer</h1>
-                <p class="optimizer-subtitle">Optimize production costs while maintaining quality standards</p>
+                <p class="optimizer-subtitle">AI-Generated Technical Report on Feedstock Cost Optimization</p>
             </div>
+        </div>
 
-            <div class="optimizer-layout">
-                <div class="optimizer-column left-column">
-                    <div class="optimizer-card">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"></line>
-                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
-                            </svg>
-                            Cost Parameters
-                        </h2>
-
-                        <form id="costForm">
-                            <div class="form-section">
-                                <label class="section-label">Production Costs</label>
-                                <div class="parameter-group">
-                                    <label>Production Cost</label>
-                                    <input type="number" id="production" name="production_cost" value="50000" min="0"
-                                        step="1000">
-                                    <span class="parameter-value" id="productionDisplay">₹50000</span>
-                                </div>
-                                <div class="parameter-group">
-                                    <label>Energy Consumption</label>
-                                    <input type="number" id="energy" name="energy_consumption" value="1200" min="0"
-                                        step="100">
-                                    <span class="parameter-value" id="energyDisplay">₹1200</span>
-                                </div>
-                                <div class="parameter-group">
-                                    <label>Labor Cost</label>
-                                    <input type="number" id="labor" name="labor_cost" value="15000" min="0" step="1000">
-                                    <span class="parameter-value" id="laborDisplay">₹15000</span>
-                                </div>
-                                <div class="parameter-group">
-                                    <label>Waste Cost</label>
-                                    <input type="number" id="waste" name="waste_cost" value="8000" min="0" step="500">
-                                    <span class="parameter-value" id="wasteDisplay">₹8000</span>
-                                </div>
-                                <div class="parameter-group">
-                                    <label>Treatment Cost</label>
-                                    <input type="number" id="treatment" name="treatment_cost" value="12000" min="0"
-                                        step="1000">
-                                    <span class="parameter-value" id="treatmentDisplay">₹12000</span>
-                                </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="button" class="btn-reset" id="resetBtn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <polyline points="1 4 1 10 7 10"></polyline>
-                                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10"></path>
-                                    </svg>
-                                    Reset
-                                </button>
-                                <button type="submit" class="btn-simulate" id="simulateBtn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    Optimize Costs
-                                </button>
-                            </div>
-                        </form>
+        <!-- AI-Generated Technical Report Section -->
+        <div class="ai-report-section">
+            <div class="report-container">
+                <!-- Report Header -->
+                <div class="report-header">
+                    <div class="ai-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                        AI-Generated Technical Report
                     </div>
+                    <h2 class="report-title">Cost-Effective Production in Feedstock</h2>
+                    <p class="report-meta">Generated by AmulFeedGuard AI System | Last Updated: January 2026</p>
                 </div>
 
-                <div class="optimizer-column center-column">
-                    <div class="optimizer-card analysis-panel" id="analysisPanel">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                            </svg>
-                            Cost Analysis
-                        </h2>
-
-                        <div class="analysis-container" id="analysisContainer">
-                            <div class="analysis-placeholder">
-                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
-                                    stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
-                                </svg>
-                                <p>Click "Optimize Costs" to start analysis</p>
-                            </div>
-                        </div>
-
-                        <div class="analysis-caption" id="analysisCaption"></div>
-                    </div>
+                <!-- Featured Image -->
+                <div class="report-image-container">
+                    <img src="images/cost-effective-production.jpg" alt="Cost-Effective Feed Production Facility"
+                        class="report-image">
+                    <div class="image-caption">Modern feed production facility with integrated cost optimization
+                        dashboard monitoring efficiency metrics</div>
                 </div>
 
-                <div class="optimizer-column right-column">
-                    <div class="optimizer-card results-panel" id="resultsPanel">
-                        <h2 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="9 11 12 14 22 4"></polyline>
-                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
-                            </svg>
-                            Optimization Results
-                        </h2>
+                <!-- Report Content -->
+                <div class="report-content">
+                    <!-- Introduction -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">1</span>
+                            Introduction
+                        </h3>
+                        <p class="section-text">
+                            In today's highly competitive and resource-constrained industrial environment, achieving
+                            cost-effective production is a primary objective for organizations across all sectors.
+                            Feedstock, as the fundamental raw material of any production process, represents a
+                            significant portion of total operational expenditure. Inefficient feedstock utilization,
+                            excessive energy consumption, and process inefficiencies directly contribute to increased
+                            production costs.
+                        </p>
+                        <p class="section-text">
+                            Cost-Effective Production in Feedstock focuses on optimizing material usage, energy
+                            consumption, process efficiency, and operational strategies to minimize expenses while
+                            maintaining or improving output quality. By integrating advanced monitoring systems, process
+                            optimization techniques, and intelligent decision-making tools, industries can achieve
+                            sustainable cost reductions without compromising performance, safety, or environmental
+                            compliance.
+                        </p>
+                    </section>
 
-                        <div class="results-content" id="resultsContent">
-                            <div class="results-placeholder">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
-                                    stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                </svg>
-                                <p>Results will appear here after optimization</p>
+                    <!-- Importance -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">2</span>
+                            Importance of Cost-Effective Feedstock Production
+                        </h3>
+                        <p class="section-text">
+                            Cost optimization in feedstock processing directly influences profitability, scalability,
+                            and long-term sustainability.
+                        </p>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.1 Reduction of Raw Material Expenditure</h4>
+                            <p class="section-text">
+                                Feedstock procurement often constitutes the largest share of production costs. Efficient
+                                utilization ensures that a greater proportion of raw material is converted into valuable
+                                output, reducing the need for excessive procurement and lowering overall material
+                                expenses.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.2 Improvement in Operational Profitability</h4>
+                            <p class="section-text">
+                                Lower production costs result in higher profit margins. Cost-effective feedstock
+                                processing enables industries to remain competitive by offering products at reduced
+                                prices while maintaining profitability.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.3 Efficient Energy Utilization</h4>
+                            <p class="section-text">
+                                Energy consumption during feedstock processing contributes significantly to operational
+                                costs. Optimized processes ensure energy is consumed only where necessary, reducing
+                                wasteful heating, cooling, or mechanical operations.
+                            </p>
+                        </div>
+
+                        <div class="subsection">
+                            <h4 class="subsection-title">2.4 Support for Sustainable Manufacturing</h4>
+                            <p class="section-text">
+                                Cost-effective production aligns with sustainability goals by minimizing resource
+                                consumption, reducing waste generation, and lowering environmental impact, all of which
+                                contribute to long-term economic and ecological benefits.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Concept -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">3</span>
+                            Concept of Cost-Effective Feedstock Production
+                        </h3>
+                        <p class="section-text">
+                            Cost-effective production is achieved through a holistic optimization of processes,
+                            resources, and technologies.
+                        </p>
+
+                        <div class="key-points-grid">
+                            <div class="key-point-card">
+                                <div class="key-point-icon">⚙️</div>
+                                <h5 class="key-point-title">Conversion Efficiency</h5>
+                                <p class="key-point-text">Improving feedstock conversion rate reduces material losses
+                                    and maximizes productivity through optimized process parameters.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">📉</div>
+                                <h5 class="key-point-title">Process Loss Minimization</h5>
+                                <p class="key-point-text">Identifying and eliminating losses from spillage, incomplete
+                                    reactions, or quality rejection directly reduces costs.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">🤖</div>
+                                <h5 class="key-point-title">Automation & Smart Control</h5>
+                                <p class="key-point-text">Automated systems reduce manual intervention, minimize errors,
+                                    and ensure consistent operation with lower labor costs.</p>
+                            </div>
+                            <div class="key-point-card">
+                                <div class="key-point-icon">📊</div>
+                                <h5 class="key-point-title">Data-Driven Optimization</h5>
+                                <p class="key-point-text">Analyzing operational data identifies high-cost areas and
+                                    enables informed, targeted cost-reduction strategies.</p>
                             </div>
                         </div>
+                    </section>
+
+                    <!-- System Architecture -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">4</span>
+                            System Architecture for Cost Optimization
+                        </h3>
+                        <p class="section-text">
+                            A cost-effective production system integrates multiple functional components.
+                        </p>
+
+                        <div class="architecture-list">
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.1</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Feedstock Input and Quality Monitoring</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Feedstock Quality Assessment:</strong> Continuous monitoring ensures
+                                            only suitable feedstock enters the process, preventing downstream losses.
+                                        </li>
+                                        <li><strong>Quantity and Flow Monitoring:</strong> Accurate measurement prevents
+                                            overfeeding and unnecessary material usage.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.2</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Process Control Unit</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Centralized Control System:</strong> PLC or microcontroller manages
+                                            process variables for optimal cost-efficient operation.</li>
+                                        <li><strong>Adaptive Control Capabilities:</strong> Dynamically adjusts to
+                                            changing feedstock properties or demand conditions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.3</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Energy Management Subsystem</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Optimized Energy Distribution:</strong> Ensures energy is supplied
+                                            precisely where required, avoiding excessive consumption.</li>
+                                        <li><strong>Load Balancing and Peak Reduction:</strong> Reduces energy costs by
+                                            managing peak demand and optimizing equipment usage.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.4</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Optimization and Cost Analysis Algorithms</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Cost Function Modeling:</strong> Mathematical models quantify the
+                                            relationship between process parameters and production cost.</li>
+                                        <li><strong>Predictive Optimization:</strong> Algorithms anticipate high-cost
+                                            scenarios and adjust operations proactively.</li>
+                                        <li><strong>Machine Learning-Based Optimization:</strong> Learns from historical
+                                            cost data to improve efficiency over time.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="architecture-item">
+                                <div class="architecture-number">4.5</div>
+                                <div class="architecture-content">
+                                    <h5 class="architecture-title">Monitoring and Reporting Interface</h5>
+                                    <ul class="architecture-details">
+                                        <li><strong>Cost Performance Dashboards:</strong> Visual representation of cost
+                                            per unit output, energy consumption, and material efficiency.</li>
+                                        <li><strong>Decision Support Tools:</strong> Provide actionable recommendations
+                                            for reducing operational expenses.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Working Principle -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">5</span>
+                            Working Principle of Cost-Effective Feedstock Production
+                        </h3>
+                        <p class="section-text">
+                            The system operates using a continuous optimization cycle:
+                        </p>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Data Collection</h5>
+                                    <p class="step-text">Feedstock usage, energy consumption, output quality</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Cost Analysis</h5>
+                                    <p class="step-text">Identify inefficiencies</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Optimization Decisions</h5>
+                                    <p class="step-text">Based on cost objectives</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Process Adjustment</h5>
+                                    <p class="step-text">Minimize cost without affecting quality</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h5 class="step-title">Performance Evaluation</h5>
+                                    <p class="step-text">Verify cost savings</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-text highlight-text">
+                            This closed-loop system ensures sustained cost optimization.
+                        </p>
+                    </section>
+
+                    <!-- Key Cost Drivers -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">6</span>
+                            Key Cost Drivers in Feedstock Processing
+                        </h3>
+
+                        <div class="feedstock-types">
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">📦</div>
+                                <h5 class="feedstock-title">Raw Material Costs</h5>
+                                <p class="feedstock-text">Fluctuations in feedstock prices directly affect production
+                                    expenses. Efficient utilization reduces sensitivity to price variations.</p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">⚡</div>
+                                <h5 class="feedstock-title">Energy Consumption Costs</h5>
+                                <p class="feedstock-text">Heating, cooling, and mechanical operations consume
+                                    substantial energy. Optimized thermal and process control reduces unnecessary usage.
+                                </p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">👷</div>
+                                <h5 class="feedstock-title">Labor and Maintenance Costs</h5>
+                                <p class="feedstock-text">Manual operations and frequent equipment failures increase
+                                    expenses. Automation and predictive maintenance reduce these costs.</p>
+                            </div>
+                            <div class="feedstock-card">
+                                <div class="feedstock-icon">🗑️</div>
+                                <h5 class="feedstock-title">Waste Management Costs</h5>
+                                <p class="feedstock-text">Disposal and treatment of waste feedstock add to production
+                                    costs. Waste minimization and recovery strategies significantly reduce expenses.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Advantages -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">7</span>
+                            Advantages of Cost-Effective Feedstock Production
+                        </h3>
+
+                        <div class="advantages-grid">
+                            <div class="advantage-item">
+                                <div class="advantage-icon">💰</div>
+                                <h5 class="advantage-title">Increased Profit Margins</h5>
+                                <p class="advantage-text">Lower operational costs directly translate into higher
+                                    profitability and financial stability.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">🏆</div>
+                                <h5 class="advantage-title">Competitive Market Position</h5>
+                                <p class="advantage-text">Cost-effective production enables competitive pricing without
+                                    compromising product quality.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">♻️</div>
+                                <h5 class="advantage-title">Improved Resource Efficiency</h5>
+                                <p class="advantage-text">Optimized utilization of feedstock and energy enhances overall
+                                    resource efficiency.</p>
+                            </div>
+                            <div class="advantage-item">
+                                <div class="advantage-icon">🌱</div>
+                                <h5 class="advantage-title">Long-Term Sustainability</h5>
+                                <p class="advantage-text">Reduced resource consumption and waste generation support
+                                    sustainable industrial practices and regulatory compliance.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Industrial Applications -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">8</span>
+                            Industrial Applications
+                        </h3>
+                        <p class="section-text">
+                            Cost-effective feedstock production is critical in:
+                        </p>
+                        <ul class="applications-list">
+                            <li>Biofuel and renewable energy industries</li>
+                            <li>Chemical and pharmaceutical manufacturing</li>
+                            <li>Food processing and dairy plants</li>
+                            <li>Metallurgical and materials processing</li>
+                            <li>Waste-to-energy systems</li>
+                        </ul>
+                    </section>
+
+                    <!-- Challenges -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">9</span>
+                            Challenges and Limitations
+                        </h3>
+                        <p class="section-text">
+                            Challenges include accurate cost modeling, variability in feedstock quality, and integration
+                            with legacy systems. However, advanced analytics and smart control technologies help
+                            overcome these barriers.
+                        </p>
+                    </section>
+
+                    <!-- Future Scope -->
+                    <section class="report-section">
+                        <h3 class="section-title">
+                            <span class="section-number">10</span>
+                            Future Scope and Innovations
+                        </h3>
+                        <p class="section-text">
+                            Future advancements include:
+                        </p>
+                        <ul class="applications-list">
+                            <li>AI-driven real-time cost optimization</li>
+                            <li>Digital twins for economic performance simulation</li>
+                            <li>IoT-enabled energy and material tracking</li>
+                            <li>Fully autonomous cost-aware production systems</li>
+                        </ul>
+                    </section>
+
+                    <!-- Conclusion -->
+                    <section class="report-section conclusion">
+                        <h3 class="section-title">
+                            <span class="section-number">11</span>
+                            Conclusion
+                        </h3>
+                        <p class="section-text">
+                            Cost-Effective Production in Feedstock is a cornerstone of modern industrial optimization.
+                            By intelligently managing feedstock utilization, energy consumption, and process efficiency,
+                            industries can achieve reduced production costs, enhanced profitability, and sustainable
+                            growth. As smart manufacturing technologies evolve, cost-effective feedstock optimization
+                            will become increasingly essential for industrial competitiveness.
+                        </p>
+                    </section>
+
+                    <!-- AI Attribution Footer -->
+                    <div class="ai-attribution">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                        <span>This technical report was generated by AmulFeedGuard AI System based on industry best
+                            practices and scientific research in cost-effective production optimization.</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <style>
+        /* AI Report Section Styles - Amber/Gold Theme for Cost Optimization */
+        .ai-report-section {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            color: white;
+            padding: 3rem 3rem 2rem;
+            text-align: center;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .report-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.2;
+        }
+
+        .report-meta {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .report-image-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .report-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .report-content {
+            padding: 3rem;
+        }
+
+        .report-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .highlight-text {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            color: #92400e;
+        }
+
+        .subsection {
+            margin: 2rem 0 2rem 2rem;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Key Points Grid */
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .key-point-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .key-point-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.15);
+        }
+
+        .key-point-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-point-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-point-text {
+            font-size: 0.95rem;
+            color: #b45309;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Architecture List */
+        .architecture-list {
+            margin-top: 2rem;
+        }
+
+        .architecture-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .architecture-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .architecture-content {
+            flex: 1;
+        }
+
+        .architecture-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+        }
+
+        .architecture-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .architecture-details li {
+            padding: 0.5rem 0;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .architecture-details strong {
+            color: #92400e;
+        }
+
+        /* Workflow Steps */
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .workflow-step {
+            flex-shrink: 0;
+            background: white;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-text {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .workflow-arrow {
+            font-size: 2rem;
+            color: #f59e0b;
+            flex-shrink: 0;
+        }
+
+        /* Feedstock Types */
+        .feedstock-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feedstock-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .feedstock-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feedstock-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #78350f;
+            margin-bottom: 0.75rem;
+        }
+
+        .feedstock-text {
+            font-size: 0.95rem;
+            color: #92400e;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Advantages Grid */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .advantage-item {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .advantage-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .advantage-text {
+            font-size: 0.95rem;
+            color: #b45309;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Applications List */
+        .applications-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .applications-list li {
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 0.5rem;
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 8px 8px 0;
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border: 2px solid #a78bfa;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        /* AI Attribution */
+        .ai-attribution {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        .ai-attribution svg {
+            flex-shrink: 0;
+            color: #f59e0b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ai-report-section {
+                padding: 2rem 1rem;
+            }
+
+            .report-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .report-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .workflow-arrow {
+                transform: rotate(90deg);
+                margin: 0.5rem 0;
+            }
+
+            .subsection {
+                margin-left: 0;
+            }
+        }
+    </style>
 
     <script src="js/cost.js"></script>
 </body>
