@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Optimizer - AmulFeedGuard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/optimizer-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- AmulFeedGuard Navigation Bar -->
+    <nav class="feedguard-navbar">
+        <div class="feedguard-container">
+            <div class="feedguard-nav-content">
+                <div class="feedguard-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title">AmulFeedGuard</div>
+                        <div class="logo-subtitle">Quality Assurance System</div>
+                    </div>
+                </div>
+
+
+                <!-- Home Tab (Right Side) -->
+                <div class="feedguard-tabs">
+                    <a href="index.html" class="tab-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="optimizer-detail-page">
+        <div class="optimizer-detail-container">
+            <div class="optimizer-header">
+                <div class="back-button" onclick="window.location.href='treatment-optimizer.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Optimizers
+                </div>
+                <h1 class="optimizer-title">Cost-Effective Production Optimizer</h1>
+                <p class="optimizer-subtitle">Optimize production costs while maintaining quality standards</p>
+            </div>
+
+            <div class="optimizer-layout">
+                <div class="optimizer-column left-column">
+                    <div class="optimizer-card">
+                        <h2 class="card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+                            </svg>
+                            Cost Parameters
+                        </h2>
+
+                        <form id="costForm">
+                            <div class="form-section">
+                                <label class="section-label">Production Costs</label>
+                                <div class="parameter-group">
+                                    <label>Production Cost</label>
+                                    <input type="number" id="production" name="production_cost" value="50000" min="0"
+                                        step="1000">
+                                    <span class="parameter-value" id="productionDisplay">₹50000</span>
+                                </div>
+                                <div class="parameter-group">
+                                    <label>Energy Consumption</label>
+                                    <input type="number" id="energy" name="energy_consumption" value="1200" min="0"
+                                        step="100">
+                                    <span class="parameter-value" id="energyDisplay">₹1200</span>
+                                </div>
+                                <div class="parameter-group">
+                                    <label>Labor Cost</label>
+                                    <input type="number" id="labor" name="labor_cost" value="15000" min="0" step="1000">
+                                    <span class="parameter-value" id="laborDisplay">₹15000</span>
+                                </div>
+                                <div class="parameter-group">
+                                    <label>Waste Cost</label>
+                                    <input type="number" id="waste" name="waste_cost" value="8000" min="0" step="500">
+                                    <span class="parameter-value" id="wasteDisplay">₹8000</span>
+                                </div>
+                                <div class="parameter-group">
+                                    <label>Treatment Cost</label>
+                                    <input type="number" id="treatment" name="treatment_cost" value="12000" min="0"
+                                        step="1000">
+                                    <span class="parameter-value" id="treatmentDisplay">₹12000</span>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-reset" id="resetBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="1 4 1 10 7 10"></polyline>
+                                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10"></path>
+                                    </svg>
+                                    Reset
+                                </button>
+                                <button type="submit" class="btn-simulate" id="simulateBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    Optimize Costs
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="optimizer-column center-column">
+                    <div class="optimizer-card analysis-panel" id="analysisPanel">
+                        <h2 class="card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            Cost Analysis
+                        </h2>
+
+                        <div class="analysis-container" id="analysisContainer">
+                            <div class="analysis-placeholder">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
+                                    stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+                                </svg>
+                                <p>Click "Optimize Costs" to start analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="analysis-caption" id="analysisCaption"></div>
+                    </div>
+                </div>
+
+                <div class="optimizer-column right-column">
+                    <div class="optimizer-card results-panel" id="resultsPanel">
+                        <h2 class="card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"></polyline>
+                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                            </svg>
+                            Optimization Results
+                        </h2>
+
+                        <div class="results-content" id="resultsContent">
+                            <div class="results-placeholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg>
+                                <p>Results will appear here after optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cost.js"></script>
+</body>
+
+</html>

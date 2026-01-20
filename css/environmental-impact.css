@@ -1,0 +1,265 @@
+/* Environmental Impact Analysis Styles */
+.environmental-impact {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.impact-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.impact-header svg {
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.impact-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.25rem 0;
+}
+
+.impact-header p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    margin: 0;
+}
+
+.impact-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.impact-metric-card {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.impact-metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.metric-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.metric-content {
+    flex: 1;
+}
+
+.metric-content .metric-label {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.metric-content .metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.2;
+}
+
+.metric-content .metric-value sub {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.efficiency-score-section {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+}
+
+.efficiency-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.efficiency-header svg {
+    flex-shrink: 0;
+}
+
+.efficiency-header span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #065F46;
+}
+
+.efficiency-display {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.efficiency-percentage {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #059669;
+    line-height: 1;
+}
+
+.efficiency-bar-container {
+    width: 100%;
+    height: 12px;
+    background: #D1FAE5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.efficiency-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+    border-radius: 6px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.efficiency-status {
+    font-size: 0.9rem;
+    color: #065F46;
+    font-weight: 500;
+}
+
+.recommendations-section {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+}
+
+.recommendations-section h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.recommendation-card {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    transition: all var(--transition-fast);
+}
+
+.recommendation-card:hover {
+    border-color: var(--amul-red);
+    box-shadow: 0 4px 12px rgba(237, 28, 36, 0.1);
+}
+
+.recommendation-card .rec-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.recommendation-card .rec-header h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.recommendation-card .impact-badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.recommendation-card .impact-badge.high {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.recommendation-card .impact-badge.medium {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.recommendation-card .impact-badge.low {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.recommendation-card p {
+    color: #6B7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+}
+
+.recommendation-card .rec-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+.recommendation-card .rec-category {
+    font-size: 0.85rem;
+    color: #9CA3AF;
+    font-weight: 500;
+}
+
+.recommendation-card .btn-apply {
+    padding: 0.5rem 1.25rem;
+    background: var(--amul-red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.recommendation-card .btn-apply:hover {
+    background: var(--amul-red-hover);
+    transform: translateX(2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .impact-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .efficiency-percentage {
+        font-size: 2.5rem;
+    }
+}

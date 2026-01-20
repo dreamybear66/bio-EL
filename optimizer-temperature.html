@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Optimizer - AmulFeedGuard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/optimizer-styles.css">
+    <link rel="stylesheet" href="css/environmental-impact.css">
+    <link rel="stylesheet" href="css/navigation-controls.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- AmulFeedGuard Navigation Bar -->
+    <nav class="feedguard-navbar">
+        <div class="feedguard-container">
+            <div class="feedguard-nav-content">
+                <div class="feedguard-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title">AmulFeedGuard</div>
+                        <div class="logo-subtitle">Quality Assurance System</div>
+                    </div>
+                </div>
+
+
+                <!-- Home Tab (Right Side) -->
+                <div class="feedguard-tabs">
+                    <a href="index.html" class="tab-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="optimizer-detail-page">
+        <div class="optimizer-detail-container">
+            <!-- Page Header -->
+            <div class="optimizer-header">
+                <div class="back-button" onclick="window.location.href='treatment-optimizer.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Optimizers
+                </div>
+                <h1 class="optimizer-title">Temperature & Process Control Optimizer</h1>
+                <p class="optimizer-subtitle">Simulate and optimize heat treatment parameters for maximum safety and
+                    efficiency</p>
+            </div>
+
+            <!-- Three Column Layout -->
+            <div class="optimizer-layout">
+                <!-- Left Column: Input Parameters -->
+                <div class="optimizer-column left-column">
+                    <div class="optimizer-card">
+                        <h2 class="card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            Treatment Parameters
+                        </h2>
+
+                        <form id="temperatureForm">
+                            <!-- Treatment Type Selection -->
+                            <div class="form-section">
+                                <label class="section-label">Step 1: Select Treatment Type</label>
+                                <div class="treatment-types">
+                                    <div class="treatment-option" data-type="heat">
+                                        <input type="radio" name="feed_type" value="heat" id="type-heat">
+                                        <label for="type-heat">
+                                            <div class="option-icon">🔥</div>
+                                            <div class="option-name">Heat Treatment</div>
+                                            <div class="option-energy">High Energy</div>
+                                        </label>
+                                    </div>
+                                    <div class="treatment-option selected" data-type="fermentation">
+                                        <input type="radio" name="feed_type" value="fermentation" id="type-fermentation"
+                                            checked>
+                                        <label for="type-fermentation">
+                                            <div class="option-icon">🧪</div>
+                                            <div class="option-name">Fermentation</div>
+                                            <div class="option-energy">Low Energy</div>
+                                        </label>
+                                    </div>
+                                    <div class="treatment-option" data-type="steam">
+                                        <input type="radio" name="feed_type" value="steam" id="type-steam">
+                                        <label for="type-steam">
+                                            <div class="option-icon">💨</div>
+                                            <div class="option-name">Steam Treatment</div>
+                                            <div class="option-energy">Medium Energy</div>
+                                        </label>
+                                    </div>
+                                    <div class="treatment-option" data-type="hybrid">
+                                        <input type="radio" name="feed_type" value="hybrid" id="type-hybrid">
+                                        <label for="type-hybrid">
+                                            <div class="option-icon">⚡</div>
+                                            <div class="option-name">Hybrid Treatment</div>
+                                            <div class="option-energy">Medium Energy</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Parameters -->
+                            <div class="form-section">
+                                <label class="section-label">Step 2: Adjust Treatment Parameters</label>
+
+                                <!-- Temperature -->
+                                <div class="parameter-group">
+                                    <div class="parameter-header">
+                                        <label>Temperature</label>
+                                        <span class="parameter-value" id="tempValue">56°C</span>
+                                    </div>
+                                    <div class="parameter-range">
+                                        <span class="range-min">30°C</span>
+                                        <input type="range" id="temperature" name="current_temperature" min="30"
+                                            max="120" value="56" step="1">
+                                        <span class="range-max">120°C</span>
+                                    </div>
+                                    <div class="parameter-hint">Range: 30°C - 120°C</div>
+                                </div>
+
+                                <!-- Duration -->
+                                <div class="parameter-group">
+                                    <div class="parameter-header">
+                                        <label>Duration</label>
+                                        <span class="parameter-value" id="durationValue">70min</span>
+                                    </div>
+                                    <div class="parameter-range">
+                                        <span class="range-min">10min</span>
+                                        <input type="range" id="duration" name="storage_duration" min="10" max="180"
+                                            value="70" step="5">
+                                        <span class="range-max">180min</span>
+                                    </div>
+                                    <div class="parameter-hint">Range: 10min - 180min</div>
+                                </div>
+
+                                <!-- Moisture -->
+                                <div class="parameter-group">
+                                    <div class="parameter-header">
+                                        <label>Moisture Content</label>
+                                        <span class="parameter-value" id="moistureValue">11%</span>
+                                    </div>
+                                    <div class="parameter-range">
+                                        <span class="range-min">5%</span>
+                                        <input type="range" id="moisture" name="ambient_humidity" min="5" max="25"
+                                            value="11" step="1">
+                                        <span class="range-max">25%</span>
+                                    </div>
+                                    <div class="parameter-hint">Range: 5% - 25%</div>
+                                </div>
+
+                                <!-- Batch Size -->
+                                <div class="parameter-group">
+                                    <div class="parameter-header">
+                                        <label>Batch Size</label>
+                                        <span class="parameter-value" id="batchValue">1600kg</span>
+                                    </div>
+                                    <div class="parameter-range">
+                                        <span class="range-min">100kg</span>
+                                        <input type="range" id="batchSize" name="batch_size" min="100" max="5000"
+                                            value="1600" step="100">
+                                        <span class="range-max">5000kg</span>
+                                    </div>
+                                    <div class="parameter-hint">Range: 100kg - 5000kg</div>
+                                </div>
+
+                                <!-- Equipment Status -->
+                                <div class="parameter-group">
+                                    <label>Equipment Status</label>
+                                    <select name="equipment_status" id="equipmentStatus">
+                                        <option value="poor">Poor</option>
+                                        <option value="moderate" selected>Moderate</option>
+                                        <option value="good">Good</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="form-actions">
+                                <button type="button" class="btn-reset" id="resetBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="1 4 1 10 7 10"></polyline>
+                                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10"></path>
+                                    </svg>
+                                    Reset to Defaults
+                                </button>
+                                <button type="submit" class="btn-simulate" id="simulateBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    Run Simulation
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Center Column: Analysis Panel with Manual Navigation -->
+                <div class="optimizer-column center-column">
+                    <div class="optimizer-card analysis-panel" id="analysisPanel">
+                        <h2 class="card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            Live Analysis
+                            <span id="stepIndicator"
+                                style="margin-left: auto; font-size: 0.9rem; color: #6B7280;"></span>
+                        </h2>
+
+                        <!-- Analysis Animation Container -->
+                        <div class="analysis-container" id="analysisContainer">
+                            <div class="analysis-placeholder">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#E9ECEF"
+                                    stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                                <p>Click "Run Simulation" to start analysis</p>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Controls -->
+                        <div class="analysis-navigation" id="analysisNavigation" style="display: none;">
+                            <button class="nav-btn prev-btn" id="prevBtn" disabled>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                                Previous
+                            </button>
+                            <div class="nav-dots" id="navDots"></div>
+                            <button class="nav-btn next-btn" id="nextBtn">
+                                Next
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Analysis Caption -->
+                        <div class="analysis-caption" id="analysisCaption"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/temperature.js"></script>
+</body>
+
+</html>

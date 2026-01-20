@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Inspection - Amul</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Quality Inspection Page Specific Styles */
+        .inspection-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--white) 0%, var(--off-white) 100%);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .inspection-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+        }
+
+        .inspection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .inspection-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--amul-red);
+        }
+
+        /* Camera and Upload Section */
+        .input-options {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .input-btn {
+            flex: 1;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--amul-red) 0%, var(--amul-red-hover) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .input-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(237, 28, 36, 0.3);
+        }
+
+        .input-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .camera-preview {
+            width: 100%;
+            max-height: 400px;
+            background: var(--off-white);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-md);
+            display: none;
+        }
+
+        .camera-preview.active {
+            display: block;
+        }
+
+        #videoElement,
+        #capturedImage,
+        #uploadedImage {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #capturedImage,
+        #uploadedImage {
+            display: none;
+        }
+
+        #capturedImage.active,
+        #uploadedImage.active {
+            display: block;
+        }
+
+        .capture-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--amul-red);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: none;
+        }
+
+        .capture-btn.active {
+            display: block;
+        }
+
+        .capture-btn:hover {
+            background: var(--amul-red-hover);
+        }
+
+        /* Results Section */
+        .results-container {
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .result-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .quality-meter {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .circular-progress {
+            transform: rotate(-90deg);
+        }
+
+        .progress-bg {
+            fill: none;
+            stroke: var(--border-light);
+            stroke-width: 12;
+        }
+
+        .progress-bar {
+            fill: none;
+            stroke: var(--amul-red);
+            stroke-width: 12;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+
+        .status-safe {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: var(--white);
+        }
+
+        .status-unsafe {
+            background: linear-gradient(135deg, var(--amul-red) 0%, var(--amul-red-hover) 100%);
+            color: var(--white);
+        }
+
+        .recommendation {
+            background: var(--off-white);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            border-left: 4px solid var(--amul-red);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .recommendation h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .recommendation p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .btn-secondary {
+            flex: 1;
+            padding: 0.9rem;
+            background: var(--white);
+            color: var(--amul-red);
+            border: 2px solid var(--amul-red);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--amul-red);
+            color: var(--white);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: var(--spacing-lg);
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--border-light);
+            border-top: 4px solid var(--amul-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto var(--spacing-sm);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .inspection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .input-options {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- AmulFeedGuard Navigation Bar -->
+    <nav class="feedguard-navbar">
+        <div class="feedguard-container">
+            <div class="feedguard-nav-content">
+                <!-- Logo -->
+                <div class="feedguard-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title">AmulFeedGuard</div>
+                        <div class="logo-subtitle">Quality Assurance System</div>
+                    </div>
+                </div>
+
+                <!-- Home Tab (Right Side) -->
+                <div class="feedguard-tabs">
+                    <a href="index.html" class="tab-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="inspection-page">
+        <div class="inspection-container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Feedstock Quality Inspection</h1>
+                <p class="page-subtitle">AI-powered image analysis for dairy quality assurance</p>
+            </div>
+
+            <!-- Inspection Grid -->
+            <div class="inspection-grid">
+                <!-- Input Section -->
+                <div class="inspection-card">
+                    <h2 class="card-header">📸 Capture or Upload Image</h2>
+
+                    <!-- Input Options -->
+                    <div class="input-options">
+                        <button class="input-btn" id="cameraBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z">
+                                </path>
+                                <circle cx="12" cy="13" r="4"></circle>
+                            </svg>
+                            Use Camera
+                        </button>
+                        <button class="input-btn" id="uploadBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            Upload Image
+                        </button>
+                    </div>
+
+                    <!-- Hidden File Input -->
+                    <input type="file" id="fileInput" accept="image/jpeg,image/png" style="display: none;">
+
+                    <!-- Camera Preview -->
+                    <div class="camera-preview" id="cameraPreview">
+                        <video id="videoElement" autoplay playsinline></video>
+                        <img id="capturedImage" alt="Captured feedstock">
+                        <img id="uploadedImage" alt="Uploaded feedstock">
+                    </div>
+
+                    <!-- Capture Button -->
+                    <button class="capture-btn" id="captureBtn">Capture Photo</button>
+
+                    <!-- Analyze Button -->
+                    <button class="capture-btn" id="analyzeBtn" style="display: none;">Analyze Quality</button>
+                </div>
+
+                <!-- Results Section -->
+                <div class="inspection-card">
+                    <h2 class="card-header">📊 Analysis Results</h2>
+
+                    <!-- Loading Spinner -->
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Analyzing feedstock quality...</p>
+                    </div>
+
+                    <!-- Results Container -->
+                    <div class="results-container" id="resultsContainer">
+                        <!-- Result Image -->
+                        <img id="resultImage" class="result-image" alt="Analyzed feedstock">
+
+                        <!-- Quality Meter -->
+                        <div class="quality-meter">
+                            <svg class="circular-progress" width="200" height="200">
+                                <circle class="progress-bg" cx="100" cy="100" r="90"></circle>
+                                <circle class="progress-bar" id="progressBar" cx="100" cy="100" r="90"
+                                    stroke-dasharray="565.48" stroke-dashoffset="565.48"></circle>
+                            </svg>
+                            <div class="progress-text" id="qualityPercentage">0%</div>
+                        </div>
+
+                        <!-- Status Badge -->
+                        <div style="text-align: center;">
+                            <span class="status-badge" id="statusBadge">Pending</span>
+                        </div>
+
+                        <!-- Recommendation -->
+                        <div class="recommendation">
+                            <h4>Recommendation</h4>
+                            <p id="recommendationText">Upload or capture an image to begin analysis.</p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="rescanBtn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2"
+                                    style="display: inline; vertical-align: middle; margin-right: 0.5rem;">
+                                    <polyline points="23 4 23 10 17 10"></polyline>
+                                    <polyline points="1 20 1 14 7 14"></polyline>
+                                    <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path>
+                                </svg>
+                                Re-scan
+                            </button>
+                            <button class="btn-secondary" onclick="window.location.href='index.html'">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2"
+                                    style="display: inline; vertical-align: middle; margin-right: 0.5rem;">
+                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                </svg>
+                                Back to Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/inspection.js"></script>
+</body>
+
+</html>

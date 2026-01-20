@@ -1,0 +1,98 @@
+/* Navigation Controls for Manual Step Navigation */
+.analysis-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-top: 2px solid var(--border-light);
+    margin-top: var(--spacing-md);
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.nav-btn:hover:not(:disabled) {
+    border-color: var(--amul-red);
+    background: #FEF2F2;
+    color: var(--amul-red);
+    transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.nav-btn svg {
+    transition: transform var(--transition-fast);
+}
+
+.nav-btn:hover:not(:disabled) svg {
+    transform: translateX(3px);
+}
+
+.prev-btn:hover:not(:disabled) svg {
+    transform: translateX(-3px);
+}
+
+.nav-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #E5E7EB;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.nav-dot.active {
+    background: var(--amul-red);
+    width: 12px;
+    height: 12px;
+}
+
+.nav-dot:hover {
+    background: #FCA5A5;
+    transform: scale(1.2);
+}
+
+/* Step Indicator */
+#stepIndicator {
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    background: #F3F4F6;
+    border-radius: 50px;
+    font-size: 0.85rem !important;
+}
+
+/* Analysis Container Adjustments for Manual Navigation */
+.analysis-panel {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.analysis-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
